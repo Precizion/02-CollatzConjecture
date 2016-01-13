@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CollatzConjecture
+{
+
+
+    class Program
+
+    {
+
+        static void Main(string[] args)
+        {
+
+            //Message for user
+            Console.WriteLine("Please enter a number that is greater than 1");
+
+
+            //Prompt for user and naming user input
+            Console.ReadLine();
+            string userInput = Console.ReadLine();
+
+            //turning input into an int and naming it "x", thus starting our setup for the "maths" that are to follow
+            int x = int.Parse(userInput);
+
+
+            //setting the max number of x to the name "max"
+
+            int max = 0;
+            int counter = 0;
+            int maxCounter = 0;
+            
+            //as long as the user number is bigger than 1 we can continue with the while loop
+            
+            while (x > 1)
+            {
+
+                //if the number entered is even, meaning divided by two and the remainder is 0, then we run this if statement
+
+                if (x % 2 == 0)
+                {
+                    x = x / 2;
+                }
+
+                //if the number entered is odd, meaning divided by two and the remainder is more than 1, then we run the else statement
+
+                else
+                {
+                    x = (3 * x) + 1; 
+                }
+
+                // we are adding a 1 to the variable named counter each time the loop is executed
+
+                counter++;
+
+                //now we are obtaining the max number reached while trying to reach 1 as well as how many times the 
+                //loop executed while obtaining a new instance of "max"
+
+                if (x > max)
+                {
+                    max = x;
+                    maxCounter = counter;
+                }
+            }
+
+            Console.WriteLine("======");
+            Console.Write("It takes " + x + " steps to reach 1 from " + userInput + ".");
+            Console.WriteLine("======");
+            Console.Write("The value reached its peak of  " + max + " at step" + maxCounter);
+            Console.ReadLine();
+
+
+        }
+      }
+}
+
